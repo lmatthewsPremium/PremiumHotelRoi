@@ -13,10 +13,11 @@ function updateYearlyRevenue() {
     const revPar = yearlyRevenue / 365 / hotelRooms;
     const revPor = yearlyRevenue / 365 / occupiedRooms; // Corrected
   
-    document.getElementById("calculatedRevenue").innerText = `$${yearlyRevenue.toFixed(2)}`;
-    document.getElementById("profit").innerText = `Profit: $${profit.toFixed(2)}`;
-    document.getElementById("revPar").innerText = `RevPar: $${revPar.toFixed(2)}`;
-    document.getElementById("revPor").innerText = `RevPor: $${revPor.toFixed(2)}`;
+    document.getElementById("calculatedRevenue").innerText = `$${yearlyRevenue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    document.getElementById("profit").innerText = `Profit: $${profit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    document.getElementById("revPar").innerText = `RevPar: $${revPar.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    document.getElementById("revPor").innerText = `RevPor: $${revPor.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    
 }
 
 // Initial update on page load
