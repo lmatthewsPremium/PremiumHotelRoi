@@ -3,16 +3,15 @@ function updateYearlyRevenue() {
     const hotelOccupancyRate = parseInt(document.getElementById("hotelOccupancy").value) / 100 || 0;
     const driveInRate = parseInt(document.getElementById("driveInRate").value) / 100 || 0;
     const overnightRate = parseInt(document.getElementById("overnightRate").value) || 0;
-    const salesTaxRate = parseInt(document.getElementById("salestax").value) / 100 || 0;
 
     const occupiedRooms = hotelRooms * hotelOccupancyRate;
     const guestsWhoDrive = occupiedRooms * driveInRate;
     // Apply sales tax to the overnight rate for the final charge per night
-    const finalChargePerNight = overnightRate - (overnightRate * salesTaxRate);
+    const finalChargePerNight = overnightRate;
     const dailyRevenue = guestsWhoDrive * finalChargePerNight;
-    const yearlyRevenue = dailyRevenue * 365;
+    const yearlyRevenue = (dailyRevenue * 365) *.97;
 
-    const profit = yearlyRevenue * 0.77; // Assuming profit calculation does not change
+    const profit = yearlyRevenue * 0.8; // Assuming profit calculation does not change
     const revPar = yearlyRevenue / 365 / hotelRooms;
     // Use occupiedRooms for revPor calculation to reflect revenue per occupied room
     const revPor = yearlyRevenue / 365 / occupiedRooms;
